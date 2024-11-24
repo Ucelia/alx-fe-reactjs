@@ -18,6 +18,7 @@ function App() {
         <Route path='/' element ={<RecipeList />} />
         <Route path='/RecipeDetails' element={<RecipeDetails />} />
       </Routes>
+      <RecipeDetails/>
     </Router>
     
   )
