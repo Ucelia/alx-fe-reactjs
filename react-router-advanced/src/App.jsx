@@ -10,7 +10,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/profile' Component={{Profile}} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/blog/:id' element={<BlogPost />} />
       </Routes>
     </Router>
   )
