@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 const initialTodos= [
     {id:1, text: "Do assignment", completed: false},
-    {id:1, text: "Learn React", completed: true},
+    {id:2, text: "Learn React", completed: true},
 ]
 
 function TodoList() {
@@ -64,4 +64,4 @@ function TodoList() {
       );
 }
 
-export default TodoList
+export default TodoList;

@@ -5,8 +5,8 @@ import TodoList from "../components/TodoList";
 describe("TodoList Component", () => {
   test("renders initial todos", () => {
     render(<TodoList />);
+    expect(screen.getByText("Do assignment")).toBeInTheDocument();
     expect(screen.getByText("Learn React")).toBeInTheDocument();
-    expect(screen.getByText("Build a project")).toBeInTheDocument();
   });
 
   test("adds a new todo", () => {
