@@ -5,6 +5,17 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      const variants = {
+        'custom-hover': '&:hover',
+        'custom-focus': '&:focus',
+      };
+
+      for (const [name, rule] of Object.entries(variants)) {
+        addVariant(name, rule);
+      }
+    },
+  ],
 };
 
