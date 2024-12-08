@@ -5,22 +5,24 @@ const AddRecipeForm = ()=> {
     const[title, setTitle] = useState("");
     const[ingredients, setIngredients] = useState("");
     const[steps, setSteps] = useState("");
-    const[error, setError ] = useState("");
+    const[errors, setErrors ] = useState("");
 
     const handleSubmit =(e)=>{
         e.preventDefault();
 
+    const validate = (title,ingredients, steps) =>{
     if(!title||ingredients||steps){
-        setError("All fields are required");
+        setErrors("All fields are required");
         return;
     }
 
     if(ingredients.split(" , ").length<2){
-        setError("Atleast 2 ingredients are required");
+        setErrors("Atleast 2 ingredients are required");
         return;
     }
 
-    setError("");
+    setErrors("");
+};
 
     const newRecipe = {
         title, ingredients: ingredients.split(" , "), steps,
@@ -39,7 +41,7 @@ const AddRecipeForm = ()=> {
     <div className='container bg-white mx-auto p-9'>
         <div className='bg-white mx-auto shadow-2xl rounded-lg p-6  '>
         <h1 className='text-lime-700 m-5'>Add Recipe Form</h1>
-        {error && <p className='text-red-500'>{error}</p>}
+        {errors && <p className='text-red-500'>{error}</p>}
         <form onSubmit={handleSubmit}>
             <div>
             <label className='text-label'>Title</label>
