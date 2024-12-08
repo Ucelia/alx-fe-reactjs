@@ -40,8 +40,8 @@ const AddRecipeForm = ()=> {
   return (
     <div className='container bg-white mx-auto p-9'>
         <div className='bg-white mx-auto shadow-2xl rounded-lg p-6  '>
-        <h1 className='text-lime-700 m-5'>Add Recipe Form</h1>
-        {errors && <p className='text-red-500'>{error}</p>}
+        <h1 className='text-lime-700 m-5 md:text-2xl sm:text-xl'>Add Recipe Form</h1>
+        {errors && <p className='text-red-500'>{errors}</p>}
         <form onSubmit={handleSubmit}>
             <div>
             <label className='text-label'>Title</label>
@@ -56,13 +56,13 @@ const AddRecipeForm = ()=> {
                 />
             </div>
             <div>
-            <label className='text-label'>steps</label>
+            <label className='text-label'>Steps</label>
             <textarea value={steps} onChange={(e)=>{setSteps(e.target.value)}} 
                 className='inputs'
                 />
             </div>
             <div>
-            <button className='bg-lime-600 m-10 hover:bg-lime-700'>Add Recipe</button>
+            <button className='bg-lime-600 m-10 hover:bg-lime-700 font-bold'>Add Recipe</button>
             </div>
             
         </form>
