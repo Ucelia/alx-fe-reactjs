@@ -4,13 +4,13 @@ import { useState } from 'react'
 const AddRecipeForm = ()=> {
     const[title, setTitle] = useState("");
     const[ingredients, setIngredients] = useState("");
-    const[instructions, setInstructions] = useState("");
+    const[steps, setSteps] = useState("");
     const[error, setError ] = useState("");
 
     const handleSubmit =(e)=>{
         e.preventDefault();
 
-    if(!title||ingredients||instructions){
+    if(!title||ingredients||steps){
         setError("All fields are required");
         return;
     }
@@ -23,7 +23,7 @@ const AddRecipeForm = ()=> {
     setError("");
 
     const newRecipe = {
-        title, ingredients: ingredients.split(" , "), instructions,
+        title, ingredients: ingredients.split(" , "), steps,
     };
 
     console.log("New Recipe: ", newRecipe);
@@ -31,7 +31,7 @@ const AddRecipeForm = ()=> {
 
     setTitle("");
     setIngredients("");
-    setInstructions("");
+    setSteps("");
 
     }
 
@@ -49,13 +49,13 @@ const AddRecipeForm = ()=> {
             </div>
             <div>
             <label className='text-label'>Ingredients</label>
-            <textarea value={ingredients} onChange={(e)=>{setTitle(e.target.value)}} 
+            <textarea value={ingredients} onChange={(e)=>{setIngredients(e.target.value)}} 
                 className='inputs'
                 />
             </div>
             <div>
-            <label className='text-label'>Instructions</label>
-            <textarea value={instructions} onChange={(e)=>{setTitle(e.target.value)}} 
+            <label className='text-label'>steps</label>
+            <textarea value={steps} onChange={(e)=>{setSteps(e.target.value)}} 
                 className='inputs'
                 />
             </div>
