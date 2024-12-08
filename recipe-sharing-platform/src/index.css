@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .text-label {
+    @apply py-2 px-5 text-gray-500 italic ;
+  }
+  .inputs{
+    @apply bg-white border-2 border-gray-300/45 rounded-lg text-black text-sm my-3;
+  }
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
