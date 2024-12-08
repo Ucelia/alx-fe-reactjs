@@ -17,8 +17,8 @@ const RecipeDetail=()=> {
       }
 
   return (
-    <div className='container bg-white p-4 mx-auto'>
-        <div className="text-center bg-lime-800 p-4 rounded-md max-w-lg">
+    <div className='container bg-white p-7 max-h-full max-w-full rounded-lg'>
+        <div className="text-center bg-lime-800 p-4 shadow-md transform hover:scale-105 ease-in-out rounded-md max-w-lg">
         <img
           src={recipe.image}
           alt={recipe.title}
