@@ -9,6 +9,7 @@ function App() {
   return (
     <div>
       <h1>dfgfjces</h1>
+      <Search />
     </div>
   )
 }
