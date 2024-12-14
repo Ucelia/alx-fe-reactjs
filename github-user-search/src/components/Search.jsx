@@ -1,11 +1,27 @@
 import React from 'react'
 import { useState } from 'react'
+import fetchUserData from '../services/githubService';
 
-function Search() {
-    const [ usernames, setusernames] = useState();
+async function Search() {
+    const [ usernames, setUsernames] = useState();
+    const [ userData, setUserData] = useState(null);
+    const [ loading, setLoading] = useState(false);
+    const [ error, setError] = useState(null);
 
-    const handleSubmit =(e)=>{
+    const handleSubmit =async (e)=>{
         e.preventDefault();
+        setLoading(true);
+        setError(null);
+        setUserData(null);
+    }
+
+    try {
+        const data = await fetchUserData(usernames);
+        setUserData(data);
+    } catch (error) {
+        setError('Looks like we cant find the user')
+    } finally {
+        setLoading(false);
     }
 
   return (
@@ -14,7 +30,7 @@ function Search() {
         <form onSubmit={handleSubmit}>
             <label></label>
             <input type="text" placeholder='Enter the GitHub username' value={usernames}
-            onChange={(e)=>setusernames(e.target.value)}
+            onChange={(e)=>setUsernames(e.target.value)}
             />
             <button type='submit'>Search</button>
         </form>
