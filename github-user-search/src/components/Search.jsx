@@ -3,7 +3,7 @@ import { fetchUserData } from '../services/githubService';
 
 function Search() {
     const [formInput, setFormInput] = useState('');
-    const [users, setUsers] = useState('');
+    const [users, setUsers] = useState([]);
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -61,21 +61,27 @@ function Search() {
 
             {loading && <p>Loading...</p>}
             {error && <p>{error}</p>}
-            {userData && (
+            
                 <div>
-                    <img
-                        src={userData.avatar_url}
-                        alt={`${userData.login}'s avatar`}
-                        width="100"
-                    />
-                    <h2>{userData.name || userData.login}</h2>
-                    <p>
-                        <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
-                            View Profile
-                        </a>
-                    </p>
-                </div>
-            )}
+                {users.map((user) => (
+                    <div key={user.id} className="flex items-center mb-4 border p-4 rounded">
+                        <img src={user.avatar_url} alt={`${user.login}'s avatar`} className="w-16 h-16 rounded-full" />
+                        <div className="ml-4">
+                            <h3 className="text-lg font-bold">{user.login}</h3>
+                            {user.location && <p className="text-sm text-gray-600">Location: {user.location}</p>}
+                            <p className="text-sm text-gray-600">Public Repos: {user.public_repos || 'N/A'}</p>
+                            <a
+                                href={user.html_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-500 underline"
+                            >
+                                View Profile
+                            </a>
+                        </div>
+                    </div>
+                ))}
+        </div>
         </div>
     );
 }
