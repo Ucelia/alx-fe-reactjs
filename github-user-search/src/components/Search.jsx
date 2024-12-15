@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { fetchUserData } from '../services/githubService';
 
+
 function Search() {
     const [formInput, setFormInput] = useState({ username: '', location: '', minRepos: '' });
     const [users, setUsers] = useState([]);
-    const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -30,15 +30,17 @@ function Search() {
     };
 
     return (
-        <div className='bg-white mx-auto'>
-            <h2>Search here</h2>
-            <form onSubmit={handleSubmit}>
+        <div className=' mx-auto max-w-4xl p-4'>
+            <h2 className='text-2xl font-bold mb-4'>Search here</h2>
+            <form onSubmit={handleSubmit} className='space-y-4'>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <input
                     type="text"
                     placeholder="Enter the GitHub username"
                     value={formInput.username}
                     name="username"
                     onChange={handleChange}
+                    className="w-full p-2 border rounded"
                 />
                 <input
                     type="text"
@@ -46,6 +48,7 @@ function Search() {
                     value={formInput.location}
                     name="location"
                     onChange={handleChange}
+                    className="w-full p-2 border rounded"
                 />
                 <input
                     type="number"
@@ -53,13 +56,16 @@ function Search() {
                     value={formInput.minRepos}
                     name="minRepos"
                     onChange={handleChange}
+                    className="w-full p-2 border rounded"
                 />
-                
-                <button type="submit">Search</button>
+                </div>
+                <button type="submit"
+                className="w-full md:w-auto bg-lime-500 text-white px-4 py-2 rounded hover:bg-lime-600"
+                >Search</button>
             </form>
 
-            {loading && <p>Loading...</p>}
-            {error && <p>{error}</p>}
+            {loading && <p className="mt-4 text-blue-500">Loading...</p>}
+            {error && <p className="mt-4 text-red-500">{error}</p>}
             
                 <div>
                 {users.map((user) => (
