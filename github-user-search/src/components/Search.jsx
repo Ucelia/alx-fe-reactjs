@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { fetchUserData } from '../services/githubService';
 
 function Search() {
-    const [formInput, setFormInput] = useState('');
+    const [formInput, setFormInput] = useState({ username: '', location: '', minRepos: '' });
     const [users, setUsers] = useState([]);
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -10,8 +10,7 @@ function Search() {
 
     const handleChange = (e)=>{
         const {name,value} = e.target;
-        setFormInput({...formInput,[name]:value});
-    };
+        setFormInput((prevState) => ({ ...prevState, [name]: value }));    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
