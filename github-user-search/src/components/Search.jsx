@@ -9,7 +9,7 @@ function Search() {
     const [error, setError] = useState(null);
 
     const handleChange = (e)=>{
-        const {name,value} = e.target;
+        const {name,value} = e.target.value;
         setFormInput((prevState) => ({ ...prevState, [name]: value }));    };
 
     const handleSubmit = async (e) => {
@@ -22,7 +22,7 @@ function Search() {
             const data = await fetchUserData(formInput);
             setUsers(data.items);
         } catch (error) {
-            setError(error.message || 'Oops! Cant find the user');
+            setError(error.message || 'Looks like we cant find the user');
         } finally {
             setLoading(false);
         }
