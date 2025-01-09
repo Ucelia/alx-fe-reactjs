@@ -8,7 +8,7 @@ function Search() {
   const [error, setError] = useState(null);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target.value;
     setFormInput((prevState) => ({ ...prevState, [name]: value }));
   };
 
@@ -32,7 +32,7 @@ function Search() {
         setError("No users found. Try different search criteria.");
       }
     } catch (error) {
-      setError(error.message || "An error occurred while fetching users.");
+      setError(error.message || "Looks like we cant find the user");
     } finally {
       setLoading(false);
     }
