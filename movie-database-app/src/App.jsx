@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import SearchBar from './components/SearchBar'
 import MovieCard from './components/MovieCard'
@@ -71,7 +69,7 @@ const App =()=> {
         ))}
       </div>
       {SelectedMovie && (
-        <MovieDetails movie={SelectedMovie} onClose={() => setSelectedMovie (null)} />
+        <MovieDetails movie={SelectedMovie} onClose={() => setSelectedMovie (null)} theme={theme} />
       )}
     </div>
     </div>

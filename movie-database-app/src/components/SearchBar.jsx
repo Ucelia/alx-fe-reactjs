@@ -1,5 +1,3 @@
-//search bar
-
 import React, { useState } from 'react'
 
 const SearchBar=({onSearch, theme})=> {
