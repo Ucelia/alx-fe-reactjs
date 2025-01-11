@@ -13,7 +13,7 @@ const MovieDetails=({movie, onClose, theme})=> {
             <p className={`${textColor}`}><strong>Genre:</strong>{movie.Genre}</p>
             <p className={`${textColor}`}><strong>Plot Summary:</strong>{movie.Plot}</p>
             <p className={`${textColor}`}><strong>Actors:</strong>{movie.Actors}</p>
-            <p className={`${textColor}`}><strong>Ratingss:</strong>{movie.imdbRating}</p>
+            <p className={`${textColor}`}><strong>Ratings:</strong>{movie.imdbRating}</p>
         </div>
     </div>
   );
